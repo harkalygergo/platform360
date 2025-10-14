@@ -1,6 +1,6 @@
-# Platform360
-###### v2025.10.14.1
-##### Platform360 is a comprehensive platform designed to streamline and enhance various aspects of business operations. It offers a wide range of features and tools to help businesses manage their processes more efficiently.
+# ⫹⫺ platform360
+##### ⫹⫺ platform360 is a comprehensive web application designed to streamline and enhance various aspects of business operations. It offers a wide range of features and tools to help businesses manage their processes more efficiently.
+###### v2025.10.14.2
 
 ---
 

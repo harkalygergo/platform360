@@ -6,34 +6,39 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                <form class="m-5 p-5 border rounded-3 bg-light">
+            <div class="col col-lg-8 mx-auto">
+                <form class="m-md-5 p-md-5 border rounded-3 bg-auto">
                     <h1 class="text-center fw-bold">⫹⫺ platform360</h1>
                     <p class="lead text-center">Business Management System </p>
-                    <h2 class="text-center pt-3 border-top">{{ 'global.auth.sign_in'|trans|capitalize }}</h2>
+                    <h3 class="text-center pt-3 fw-bold border-top">{{ 'global.auth.sign_in'|trans|upper }}</h3>
                     <div class="mb-3">
-                        <label for="ID" class="form-label">ID</label>
-                        <input type="email" class="form-control" id="ID" aria-describedby="IDHelp" required>
+                        <label for="ID" class="form-label required">ID</label>
+                        <input type="text" class="form-control" id="ID" aria-describedby="IDHelp" required>
                         <div id="IDHelp" class="form-text">{{ 'global.auth.username'|trans }} {{ 'global.or'|trans }} e-mail</div>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">{{ 'global.auth.password'|trans|capitalize }}</label>
+                        <label for="email" class="form-label required">{{ 'global.auth.password'|trans|capitalize }}</label>
                         <input type="password" class="form-control" id="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="lang" class="form-label">{{ 'global.language'|trans|capitalize }}</label>
                         <select class="form-select" id="lang" name="lang" required>
-                            <option value="en">English (global)</option>
-                            <option value="de">Deutsch (GER)</option>
-                            <option value="hu">magyar (HUN)</option>
+                            <option value="en" {% if app.request.get('_locale') is empty or app.request.get('_locale') == 'en' %}selected{% endif %}>English (global)</option>
+                            <option value="de" {% if app.request.get('_locale') == 'de' %}selected{% endif %}>Deutsch (GER)</option>
+                            <option value="hu" {% if app.request.get('_locale') == 'hu' %}selected{% endif %}>magyar (HUN)</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <input type="checkbox" class="form-check-input" id="check1">
                         <label class="form-check-label" for="check1">{{ 'page.auth.keep_me_logged_in'|trans|capitalize }}</label>
                     </div>
-                    <button type="submit" class="btn btn-dark">{{ 'global.actions.send'|trans|capitalize }}</button>
+                    <div class="d-grid gap-2 mx-auto mb-3">
+                        <button type="submit" class="btn btn-success">{{ 'global.actions.send'|trans|capitalize }}</button>
+                    </div>
                 </form>
+                <div class="d-grid gap-2 col-6 mx-auto mb-3">
+                    <a href="#" class="btn btn-link">{{ 'page.auth.forgot_password'|trans|capitalize }}</a>
+                </div>
             </div>
         </div>
     </div>

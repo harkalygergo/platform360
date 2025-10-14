@@ -28,7 +28,7 @@ global:
 page:
     auth:
         keep_me_logged_in: keep me logged in
-        forgot_your_password: forgot your password?
+        forgot_password: forgot your password?
         reset_your_password: reset your password
         remember_your_password: remember your password?
         enter_your_email_to_reset_your_password: enter your email to reset your password

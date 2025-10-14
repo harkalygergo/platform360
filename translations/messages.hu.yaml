@@ -28,7 +28,7 @@ global:
 page:
     auth:
         keep_me_logged_in: maradjak bejelentkezve
-        forgot_your_password: elfelejtette jelszavát?
+        forgot_password: elfelejtette jelszavát?
         reset_your_password: jelszó visszaállítása
         remember_your_password: emlékszik jelszavára?
         enter_your_email_to_reset_your_password: adja meg e-mail címét jelszó visszaállításhoz

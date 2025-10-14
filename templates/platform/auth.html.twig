@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PlatformController!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form class="m-5 p-5 border rounded-3 bg-light">
+                    <h1 class="text-center fw-bold">⫹⫺ platform360</h1>
+                    <p class="lead text-center">Business Management System </p>
+                    <h2 class="text-center pt-3 border-top">{{ 'global.auth.sign_in'|trans|capitalize }}</h2>
+                    <div class="mb-3">
+                        <label for="ID" class="form-label">ID</label>
+                        <input type="email" class="form-control" id="ID" aria-describedby="IDHelp" required>
+                        <div id="IDHelp" class="form-text">{{ 'global.auth.username'|trans }} {{ 'global.or'|trans }} e-mail</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">{{ 'global.auth.password'|trans|capitalize }}</label>
+                        <input type="password" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lang" class="form-label">{{ 'global.language'|trans|capitalize }}</label>
+                        <select class="form-select" id="lang" name="lang" required>
+                            <option value="en">English (global)</option>
+                            <option value="de">Deutsch (GER)</option>
+                            <option value="hu">magyar (HUN)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" class="form-check-input" id="check1">
+                        <label class="form-check-label" for="check1">{{ 'page.auth.keep_me_logged_in'|trans|capitalize }}</label>
+                    </div>
+                    <button type="submit" class="btn btn-dark">{{ 'global.actions.send'|trans|capitalize }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

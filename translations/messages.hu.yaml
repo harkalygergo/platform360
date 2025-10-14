@@ -1,0 +1,41 @@
+global:
+    language: nyelv
+    or: vagy
+    and: és
+    yes: igen
+    no: Nem
+    actions:
+        send: küldés
+        save: mentés
+        edit: szerkesztés
+        delete: törlés
+        cancel: mégse
+        update: frissítés
+        create: létrehozás
+        view: megtekintés
+        search: keresés
+        reset: visszaállítás
+        action: művelet
+        actions: műveletek
+    auth:
+        sign_in: bejelentkezés
+        sign_out: kijelentkezés
+        sign_up: regisztráció
+        username: felhasználónév
+        email: e-mail
+        password: jelszó
+        password_confirmation: jelszó megerősítése
+page:
+    auth:
+        keep_me_logged_in: maradjak bejelentkezve
+        forgot_your_password: elfelejtette jelszavát?
+        reset_your_password: jelszó visszaállítása
+        remember_your_password: emlékszik jelszavára?
+        enter_your_email_to_reset_your_password: adja meg e-mail címét jelszó visszaállításhoz
+        enter_your_email_and_new_password: adja meg e-mail címét és új jelszavát
+        i_agree_to_the: elfogadom a
+        terms_of_service: szolgáltatási feltételeket
+        and: és
+        privacy_policy: adatvédelmi irányelveket
+    home:
+        title: Üdvözöljük a(z) %{app_name} alkalmazásban

@@ -35,6 +35,15 @@ class RegisterController extends PlatformController
                 $user = $data['user'];
                 $billing = $data['billing'];
                 $user->setStatus(true);
+                $user->setRoles(['ROLE_USER']);
+                $user->setCreatedAt(new \DateTimeImmutable());
+                // encode the plain password
+                $user->setPassword(
+                    password_hash(
+                        $form->get('user')->get('plainPassword')->getData(),
+                        PASSWORD_BCRYPT
+                    )
+                );
 
                 // create instance based on billing profile
                 $instance = new Instance();
@@ -52,6 +61,17 @@ class RegisterController extends PlatformController
                 $this->doctrine->getManager()->flush();
 
                 $this->sendEmail($user, $billing);
+
+                // login user
+                $this->logger->info('New user registered: ' . $user->getId());
+                $this->container->get('security.token_storage')->setToken(
+                    new \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken(
+                        $user,
+                        null,
+                        ['main']
+                    )
+                );
+                $this->logger->info('User logged in: ' . $user->getId());
 
                 return $this->redirectToRoute('app_dashboard');
             }

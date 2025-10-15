@@ -23,60 +23,59 @@
 <nav class="bg-black text-white">
     <div class="d-flex flex-column flex-shrink-0 h-100">
         <a href="/"
-           class="d-block px-3 py-1 link-body-emphasis text-decoration-none border-bottom text-warning"
+           class="d-block link-body-emphasis text-decoration-none border-bottom text-warning"
            data-bs-toggle="tooltip"
            data-bs-placement="right"
            data-bs-original-title="Icon-only">
             <span class="fs-1">⫹⫺</span>
-            <small class="fw-bold">PLATFORM</small>
             <span class="visually-hidden">Icon-only</span> </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
-                    <i class="bi bi-speedometer2 fs-4"></i><br>
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                    <i class="bi bi-speedometer2 fs-4"></i>
                     <small>ADMIN</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
-                    <i class="bi bi-globe fs-3"></i><br>
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                    <i class="bi bi-globe fs-3 p-0 m-0"></i>
                     <small>WEB</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
-                    <i class="bi bi-people fs-3"></i><br>
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                    <i class="bi bi-people fs-3 p-0 m-0"></i>
                     <small>CRM</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
-                    <i class="bi bi-cart fs-3"></i><br>
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                    <i class="bi bi-cart fs-3 p-0 m-0"></i>
                     <small>ECOM</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
-                    <i class="bi bi-building p-0 m-0 fs-3"></i><br>
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                    <i class="bi bi-briefcase fs-3 p-0 m-0"></i>
                     <small>ERP</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
-                    <i class="bi bi-tools p-0 m-0 fs-4"></i><br>
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                    <i class="bi bi-tools fs-3 p-0 m-0"></i>
                     <small>TOOLS</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
-                    <i class="bi bi-gear p-0 m-0 fs-4"></i><br>
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                    <i class="bi bi-gear fs-3 p-0 m-0"></i>
                     <small>SETTINGS</small>
                 </a>
             </li>
         </ul>
         <div class="border-top">
             <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none">
-                <i class="bi bi-question-circle p-0 m-0 fs-5"></i>
+                <i class="bi bi-question-circle text-secondary p-0 m-0 fs-5"></i>
             </a>
         </div>
     </div>
@@ -101,6 +100,7 @@
     </header>
     <section>
         hello
+        {{ dump(app.user) }}
     </section>
 </main>
 

@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="{% if app.request.get('_locale') is not empty %}{{ app.request.get('_locale') }}{% else %}en{% endif %}" data-bs-theme="dark">
+<html dir="ltr" class="h-100" lang="{% if app.request.get('_locale') is not empty %}{{ app.request.get('_locale') }}{% else %}en{% endif %}" data-bs-theme="dark">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}PLATFORM V2{% endblock %}</title>
+
         <link rel="stylesheet" type="text/css" href="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap-icons/font/bootstrap-icons.min.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +35,14 @@
             .form-control:valid:not(textarea) {
                 border-color: green;
             }
+
+            /* ADMIN */
+            nav {
+                max-width: 5rem;
+            }
+            small {
+                font-size:10px;
+            }
         </style>
 
         {% block stylesheets %}
@@ -40,7 +51,7 @@
         {% block javascripts %}
         {% endblock %}
     </head>
-    <body>
+    <body class="d-flex h-100">
         {% block body %}{% endblock %}
 
         <script src="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>

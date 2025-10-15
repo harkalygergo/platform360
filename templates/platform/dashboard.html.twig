@@ -1,25 +1,8 @@
-<!doctype html>
-<html lang="hu" class="h-100" data-bs-theme="dark">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html.twig' %}
 
-    <title>PLATFORM V2</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-    <script src="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap-icons/font/bootstrap-icons.min.css">
+{% block title %}Hello PlatformController!{% endblock %}
 
-    <style>
-        nav {
-            max-width: 5rem;
-        }
-        small {
-            font-size:10px;
-        }
-    </style>
-</head>
-<body class="d-flex h-100 text-center">
-
+{% block body %}
 <nav class="bg-black text-white">
     <div class="d-flex flex-column flex-shrink-0 h-100">
         <a href="/"
@@ -126,5 +109,4 @@
     })();
 </script>
 
-</body>
-</html>
+{% endblock %}

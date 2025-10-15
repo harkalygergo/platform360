@@ -6,57 +6,67 @@
 <nav class="bg-black text-white">
     <div class="d-flex flex-column flex-shrink-0 h-100">
         <a href="/"
-           class="d-block link-body-emphasis text-decoration-none border-bottom text-warning"
+           class="d-block py-1 text-center link-body-emphasis text-decoration-none border-bottom text-warning"
            data-bs-toggle="tooltip"
            data-bs-placement="right"
            data-bs-original-title="Icon-only">
             <span class="fs-1">⫹⫺</span>
+            <br><small class="fw-bold">PLATFORM</small>
             <span class="visually-hidden">Icon-only</span> </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="admin">
                     <i class="bi bi-speedometer2 fs-4"></i>
-                    <small>ADMIN</small>
+                    <br><small>ADMIN</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="Content Management System">
                     <i class="bi bi-globe fs-3 p-0 m-0"></i>
-                    <small>WEB</small>
+                    <br><small>WEB</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="Customer Relationship Management">
                     <i class="bi bi-people fs-3 p-0 m-0"></i>
-                    <small>CRM</small>
+                    <br><small>CRM</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="E-commerce">
                     <i class="bi bi-cart fs-3 p-0 m-0"></i>
-                    <small>ECOM</small>
+                    <br><small>ECOM</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="Enterprise Resource Planning">
                     <i class="bi bi-briefcase fs-3 p-0 m-0"></i>
-                    <small>ERP</small>
+                    <br><small>ERP</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="Analytics">
+                    <i class="bi bi-graph-up fs-3 p-0 m-0"></i>
+                    <br><small>ANALYTICS</small>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="tools">
                     <i class="bi bi-tools fs-3 p-0 m-0"></i>
-                    <small>TOOLS</small>
+                    <br><small>TOOLS</small>
                 </a>
             </li>
             <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="favorites">
+                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="settings">
                     <i class="bi bi-gear fs-3 p-0 m-0"></i>
-                    <small>SETTINGS</small>
+                    <br><small>SETTINGS</small>
                 </a>
             </li>
         </ul>
         <div class="border-top">
+            <button class="btn btn-sm btn-outline-secondary" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle light/dark">
+                <i class="bi bi-sun-fill" id="themeIcon"></i>
+            </button>
             <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none">
                 <i class="bi bi-question-circle text-secondary p-0 m-0 fs-5"></i>
             </a>
@@ -81,14 +91,41 @@
         <!-- Make the list icon an accessible toggle for the aside -->
         <i id="asideToggle" class="bi bi-list border rounded-2" style="cursor:pointer" role="button" tabindex="0" aria-controls="app-aside" aria-expanded="true" aria-label="Toggle sidebar"></i> PLATFORM V2
     </header>
-    <section>
-        hello
+    <section class="bg-light text-dark p-3">
+        <h1 class="fw-bold pb-0 mb-0">Dashboard</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item fs-6"><a href="#"><small>Home</small></a></li>
+                <li class="breadcrumb-item"><a href="#"><small>Management</small></a></li>
+                <li class="breadcrumb-item active"><small>Dashboard</small></li>
+            </ol>
+        </nav>
+
         {{ dump(app.user) }}
     </section>
 </main>
 
 <!-- Lightweight inline script to toggle the aside visibility -->
 <script>
+    // function to light or dark template
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-bs-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-bs-theme', next);
+        localStorage.setItem('theme', next);
+        updateThemeIcons(next);
+    }
+    function updateThemeIcons(theme) {
+        const sun = 'bi-sun-fill';
+        const moon = 'bi-moon-stars-fill';
+        const headerIcon = document.getElementById('themeIconHeader');
+        const sideIcon = document.getElementById('themeIcon');
+        if (headerIcon) headerIcon.className = 'bi ' + (theme === 'dark' ? sun : moon);
+        if (sideIcon) sideIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+    }
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('themeToggleHeader')?.addEventListener('click', toggleTheme);
+
     (function () {
         const toggle = document.getElementById('asideToggle');
         const aside = document.getElementById('app-aside') || document.querySelector('aside');

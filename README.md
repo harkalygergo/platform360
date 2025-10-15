@@ -1,6 +1,6 @@
 # ⫹⫺ platform360
 ##### ⫹⫺ platform360 is a comprehensive web application designed to streamline and enhance various aspects of business operations. It offers a wide range of features and tools to help businesses manage their processes more efficiently.
-###### v2025.10.15.1
+###### v2025.10.15.2
 
 ---
 
@@ -40,6 +40,35 @@ To install Platform360, follow these steps:
 
 ---
 
+## Developer notes
+
+- `composer update` to update PHP dependencies.
+- `npm update` to update JavaScript dependencies.
+- `npm run dev` to start the development server with hot reloading.
+- `npm run build` to build assets for production.
+- `npm run lint` to check code style.
+- `npm run fix` to automatically fix code style issues.
+- `php bin/console make:migration` to create a new database migration.
+- `php bin/console doctrine:migrations:migrate` to apply database migrations.
+- `php bin/console cache:clear` to clear the application cache.
+- `php bin/console server:run` to start the Symfony development server.
+- `php bin/console debug:router` to list all routes.
+- `php bin/console debug:container` to list all services in the container.
+- `php bin/console doctrine:schema:update --force` to update the database schema.
+- `php bin/console make:entity` to create or update an entity.
+- `php bin/console make:controller` to create a new controller.
+- `php bin/console make:form` to create a new form class.
+- `php bin/console make:command` to create a new console command.
+- `php bin/console make:subscriber` to create a new event subscriber.
+- `php bin/console make:validator` to create a new custom validator.
+- `php bin/console make:auth` to create a new authentication system.
+- `php bin/console make:user` to create a new user entity.
+- `php bin/console security:encode-password` to encode a password for a user.
+- `php bin/console debug:event-dispatcher` to list all event listeners and subscribers.
+- `php bin/console debug:config` to display the current configuration for a specific
+
+---
+
 ## Copyright
 
-⫹⫺ platform360 made with 💚 in Budapest (Hungary) by Gergő Harkály (https://www.harkalygergo.hu).
+Made with 💚 in Budapest (Hungary) by Gergő Harkály full-stack web developer (https://www.harkalygergo.hu).

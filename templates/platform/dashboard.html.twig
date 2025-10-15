@@ -1,1 +1,130 @@
-alma
+<!doctype html>
+<html lang="hu" class="h-100" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PLATFORM V2</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.brandcomstudio.com/vendor/twbs/bootstrap-icons/font/bootstrap-icons.min.css">
+
+    <style>
+        nav {
+            max-width: 5rem;
+        }
+        small {
+            font-size:10px;
+        }
+    </style>
+</head>
+<body class="d-flex h-100 text-center">
+
+<nav class="bg-black text-white">
+    <div class="d-flex flex-column flex-shrink-0 h-100">
+        <a href="/"
+           class="d-block px-3 py-1 link-body-emphasis text-decoration-none border-bottom text-warning"
+           data-bs-toggle="tooltip"
+           data-bs-placement="right"
+           data-bs-original-title="Icon-only">
+            <span class="fs-1">⫹⫺</span>
+            <small class="fw-bold">PLATFORM</small>
+            <span class="visually-hidden">Icon-only</span> </a>
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
+                    <i class="bi bi-speedometer2 fs-4"></i><br>
+                    <small>ADMIN</small>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
+                    <i class="bi bi-globe fs-3"></i><br>
+                    <small>WEB</small>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
+                    <i class="bi bi-people fs-3"></i><br>
+                    <small>CRM</small>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
+                    <i class="bi bi-cart fs-3"></i><br>
+                    <small>ECOM</small>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
+                    <i class="bi bi-building p-0 m-0 fs-3"></i><br>
+                    <small>ERP</small>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
+                    <i class="bi bi-tools p-0 m-0 fs-4"></i><br>
+                    <small>TOOLS</small>
+                </a>
+            </li>
+            <li class="nav-item border-bottom">
+                <a href="#" class="nav-link link-body-emphasis fw-bold" title="favorites">
+                    <i class="bi bi-gear p-0 m-0 fs-4"></i><br>
+                    <small>SETTINGS</small>
+                </a>
+            </li>
+        </ul>
+        <div class="border-top">
+            <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none">
+                <i class="bi bi-question-circle p-0 m-0 fs-5"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<aside id="app-aside" class="h-100">
+    <div class="flex-shrink-0 p-3" style="width: 280px;"> <a href="/" class="d-flex align-items-center pb-3 mb-3 link-white text-decoration-none border-bottom"> <svg class="bi pe-none me-2" width="30" height="24" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg> <span class="fs-5 fw-semibold">Collapsible</span> </a> <ul class="list-unstyled ps-0"> <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                    Home
+                </button> <div class="collapse show" id="home-collapse"> <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li> </ul> </div> </li> <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                    Dashboard
+                </button> <div class="collapse" id="dashboard-collapse"> <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li> </ul> </div> </li> <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                    Orders
+                </button> <div class="collapse" id="orders-collapse"> <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li> </ul> </div> </li> <li class="border-top my-3"></li> <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                    Account
+                </button> <div class="collapse" id="account-collapse"> <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li> <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li> </ul> </div> </li> </ul> </div>
+</aside>
+
+<main class="bg-light text-start flex-grow-1 text-dark">
+    <header class="bg-dark text-white p-2">
+        <!-- Make the list icon an accessible toggle for the aside -->
+        <i id="asideToggle" class="bi bi-list border rounded-2" style="cursor:pointer" role="button" tabindex="0" aria-controls="app-aside" aria-expanded="true" aria-label="Toggle sidebar"></i> PLATFORM V2
+    </header>
+    <section>
+        hello
+    </section>
+</main>
+
+<!-- Lightweight inline script to toggle the aside visibility -->
+<script>
+    (function () {
+        const toggle = document.getElementById('asideToggle');
+        const aside = document.getElementById('app-aside') || document.querySelector('aside');
+        if (!toggle || !aside) return;
+
+        function handleToggle() {
+            const isHidden = aside.classList.toggle('d-none');
+            toggle.setAttribute('aria-expanded', String(!isHidden));
+        }
+
+        toggle.addEventListener('click', handleToggle);
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleToggle();
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>

@@ -7,12 +7,10 @@ use App\Entity\Platform\BillingProfile;
 use App\Entity\Platform\Instance;
 use App\Entity\Platform\User;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\RegistrationFormType;
-use Symfony\Component\Serializer\SerializerInterface;
 
 class RegisterController extends PlatformController
 {

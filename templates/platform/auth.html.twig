@@ -7,20 +7,20 @@
     <div class="container">
         <div class="row">
             <div class="col col-lg-6 mx-auto">
-                <form class="m-md-5 p-md-5 border rounded-3 bg-auto">
+                <form class="m-md-5 p-md-5 border rounded-3 bg-auto" method="post" action="{{ path('app_login') }}">
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     <input type="hidden" name="honeypot" value="">
                     <h1 class="text-center fw-bold display-5">⫹⫺ platformBMS</h1>
                     <p class="lead text-center">Platform Business Management System </p>
                     <h3 class="text-center pt-3 fw-bold border-top">{{ 'global.auth.sign_in'|trans|upper }}</h3>
                     <div class="mb-3">
-                        <label for="ID" class="form-label required">ID</label>
-                        <input type="text" class="form-control" id="ID" aria-describedby="IDHelp" required>
+                        <label for="id" class="form-label required">ID</label>
+                        <input type="text" class="form-control" name="id" id="id" value="{{ last_id }}" aria-describedby="IDHelp" required>
                         <div id="IDHelp" class="form-text">{{ 'global.auth.username'|trans }} {{ 'global.or'|trans }} e-mail</div>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label required">{{ 'global.auth.password'|trans|capitalize }}</label>
-                        <input type="password" class="form-control" id="email" required>
+                        <label for="password" class="form-label required">{{ 'global.auth.password'|trans|capitalize }}</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <div class="mb-3">
                         <label for="lang" class="form-label">{{ 'global.language'|trans|capitalize }}</label>

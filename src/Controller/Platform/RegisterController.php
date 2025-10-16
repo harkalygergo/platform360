@@ -71,7 +71,7 @@ class RegisterController extends PlatformController
                 );
                 $this->logger->info('User logged in: ' . $user->getId());
 
-                return $this->redirectToRoute('app_dashboard');
+                return $this->redirectToRoute('homepage');
             }
         }
 

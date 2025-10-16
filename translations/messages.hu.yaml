@@ -4,6 +4,7 @@ global:
     and: és
     yes: igen
     no: Nem
+    phone_number: telefonszám
     actions:
         send: küldés
         save: mentés

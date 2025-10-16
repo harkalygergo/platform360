@@ -4,6 +4,7 @@ global:
     and: und
     yes: ja
     no: nein
+    phone_number: Telefonnummer
     actions:
         send: senden
         save: speichern

@@ -4,6 +4,7 @@ global:
     and: and
     yes: yes
     no: No
+    phone_number: phone number
     actions:
         send: send
         save: save

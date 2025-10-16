@@ -36,11 +36,10 @@ class RegisterController extends PlatformController
                 $billing = $data['billing'];
                 $user->setStatus(true);
                 $user->setRoles(['ROLE_USER']);
-                $user->setCreatedAt(new \DateTimeImmutable());
                 // encode the plain password
                 $user->setPassword(
                     password_hash(
-                        $form->get('user')->get('plainPassword')->getData(),
+                        $form->get('user')->get('password')->getData(),
                         PASSWORD_BCRYPT
                     )
                 );
@@ -67,8 +66,7 @@ class RegisterController extends PlatformController
                 $this->container->get('security.token_storage')->setToken(
                     new \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken(
                         $user,
-                        null,
-                        ['main']
+                        'main'
                     )
                 );
                 $this->logger->info('User logged in: ' . $user->getId());

@@ -79,18 +79,4 @@ class RegisterController extends PlatformController
             'registrationForm' => $form->createView(),
         ]);
     }
-
-    public function sendEmail($user, $billing)
-    {
-        $email = (new Email())
-            ->from('hello@example.com')
-            ->to($_ENV['ADMIN_EMAIL'])
-            ->subject('new registration')
-            ->text( '
-                User: ' . $user->getId() . '
-                Billing Profile: ' . $billing->getId()
-        );
-
-        $this->mailer->send($email);
-    }
 }

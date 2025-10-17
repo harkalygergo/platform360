@@ -14,7 +14,7 @@ class DashboardController extends PlatformController
     #[Route('/dashboard', name: 'homepage')]
     public function dashboard(): Response
     {
-        return $this->render('platform/dashboard.html.twig', [
+        return $this->render('platform/dashboard/dashboard.html.twig', [
             'controller_name' => 'PlatformController',
         ]);
     }

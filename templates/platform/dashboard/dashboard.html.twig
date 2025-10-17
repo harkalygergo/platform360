@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PlatformController!{% endblock %}
+
+{% block body %}
+
+    {% include 'platform/dashboard/_sidebar.html.twig' %}
+
+<main class="text-start flex-grow-1">
+    <header class="p-2">
+        <!-- Make the list icon an accessible toggle for the aside -->
+        <i id="asideToggle" class="bi bi-list border rounded-2" style="cursor:pointer" role="button" tabindex="0" aria-controls="app-aside" aria-expanded="true" aria-label="Toggle sidebar"></i> PLATFORM V2
+    </header>
+    <section class="p-3">
+        <h1 class="fw-bold pb-0 mb-0">Dashboard</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item fs-6"><a href="#"><small>Home</small></a></li>
+                <li class="breadcrumb-item"><a href="#"><small>Management</small></a></li>
+                <li class="breadcrumb-item active"><small>Dashboard</small></li>
+            </ol>
+        </nav>
+
+        {% if app.user %}
+            <p class="text-success">You are logged in as {{ app.user.email }}.</p>
+        {% else %}
+            <p class="text-danger">You are not logged in.</p>
+        {% endif %}
+
+        <div class="card h-100">
+            <div class="card-header text-uppercase fw-bold">
+                Szolgáltatás áttekintés
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <td>Rendszer tárhely:</td>
+                            <td class="fw-bold">10000 / ? MB</td>
+                        </tr>
+                        <tr>
+                            <td>Domain:</td>
+                            <td class="fw-bold">
+                                <a class="text-black" href="/hu/admin/v1/domains">
+                                    0
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Aldomain:</td>
+                            <td class="fw-bold">?</td>
+                        </tr>
+                        <tr>
+                            <td>Honlap:</td>
+                            <td class="fw-bold">?</td>
+                        </tr>
+                        <tr>
+                            <td>Webshop:</td>
+                            <td class="fw-bold">?</td>
+                        </tr>
+                        <tr>
+                            <td>Webalkalmazás:</td>
+                            <td class="fw-bold">0</td>
+                        </tr>
+                        <tr>
+                            <td>Mobilalkalmazás:</td>
+                            <td class="fw-bold">0</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+</main>
+
+<!-- Lightweight inline script to toggle the aside visibility -->
+<script>
+    // function to light or dark template
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-bs-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-bs-theme', next);
+        localStorage.setItem('theme', next);
+
+        switch (next) {
+            case 'dark':
+                document.getElementsByTagName("header")["0"].setAttribute("class", "p-2 bg-black text-light");
+                document.getElementsByTagName("aside")["0"].setAttribute("class", "p-2 bg-black text-light");
+                break;
+            case 'light':
+                document.getElementsByTagName("header")["0"].setAttribute("class", "p-2 bg-light text-dark");
+                document.getElementsByTagName("aside")["0"].setAttribute("class", "p-2 bg-light text-dark");
+                break;
+            default:
+                document.getElementsByTagName("header")["0"].setAttribute("class", "p-2 bg-auto text-auto");
+                document.getElementsByTagName("aside")["0"].setAttribute("class", "p-2 bg-auto text-auto");
+        }
+
+        updateThemeIcons(next);
+    }
+    function updateThemeIcons(theme) {
+        const sun = 'bi-sun-fill';
+        const moon = 'bi-moon-stars-fill';
+        const headerIcon = document.getElementById('themeIconHeader');
+        const sideIcon = document.getElementById('themeIcon');
+        if (headerIcon) headerIcon.className = 'bi ' + (theme === 'dark' ? sun : moon);
+        if (sideIcon) sideIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+    }
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('themeToggleHeader')?.addEventListener('click', toggleTheme);
+
+    (function () {
+        const toggle = document.getElementById('asideToggle');
+        const aside = document.getElementById('app-aside') || document.querySelector('aside');
+        if (!toggle || !aside) return;
+
+        function handleToggle() {
+            const isHidden = aside.classList.toggle('d-none');
+            toggle.setAttribute('aria-expanded', String(!isHidden));
+        }
+
+        toggle.addEventListener('click', handleToggle);
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleToggle();
+            }
+        });
+    })();
+</script>
+
+{% endblock %}

@@ -79,4 +79,36 @@ class BlockController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/edit/{id}', name: 'web_block_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, EntityManagerInterface $em, Block $block): Response
+    {
+        $form = $this->createForm(BlockType::class, $block);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($block);
+            $em->flush();
+
+            $this->addFlash('success', 'Block updated');
+
+            return $this->redirectToRoute('web_block_index');
+        }
+
+        return $this->render('platform/block/edit.html.twig', [
+            'form' => $form->createView(),
+            'block' => $block,
+        ]);
+    }
+
+    #[Route('/delete/{id}', name: 'web_block_delete', methods: ['POST'])]
+    public function delete(Request $request, EntityManagerInterface $em, Block $block): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $block->getId(), $request->request->get('_token'))) {
+            $em->remove($block);
+            $em->flush();
+            $this->addFlash('success', 'Block deleted');
+        }
+
+        return $this->redirectToRoute('web_block_index');
+    }
 }

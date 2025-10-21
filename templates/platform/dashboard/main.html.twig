@@ -41,6 +41,7 @@
                                 {% for key, value in items['0'] %}
                                     <th>{{ key }}</th>
                                 {% endfor %}
+                                <th>Eszközök</th>
                             </tr>
                             </thead>
 
@@ -51,6 +52,14 @@
                                     {% for key, value in item %}
                                         <td>{{ value }}</td>
                                     {% endfor %}
+                                    <td>
+                                        <a href="edit/{{ item.id }}">edit</a>
+                                        <form action="delete/{{ item.id }}" method="POST">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ item.id) }}">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit">delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 </tbody>
                             {% endfor %}

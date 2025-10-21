@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PlatformController!{% endblock %}
+
+{% block body %}
+
+    {% include 'platform/dashboard/_sidebar.html.twig' %}
+
+    <main class="text-start flex-grow-1 d-flex flex-column text-dark vh-100 overflow-auto">
+
+        {% include 'platform/dashboard/_header.html.twig' %}
+
+        <section class="p-3 bg-light flex-grow-1  overflow-auto">
+            <h1 class="fw-bold pb-0 mb-0">Dashboard</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item fs-6"><a href="#"><small>Home</small></a></li>
+                    <li class="breadcrumb-item"><a href="#"><small>Management</small></a></li>
+                    <li class="breadcrumb-item active"><small>Dashboard</small></li>
+                </ol>
+            </nav>
+
+            {% if app.user %}
+                <p class="text-success">You are logged in as {{ app.user.email }}.</p>
+            {% else %}
+                <p class="text-danger">You are not logged in.</p>
+            {% endif %}
+
+            <div class="card">
+                <div class="card-header text-uppercase fw-bold">
+                    {{ title }}
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover table-striped">
+
+                            <thead>
+                                <tr>
+                                    {% for key, value in items %}
+                                            <th>{{ key }}:</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                            {% for key, value in items %}
+                                    <td>{{ value }}:</td>
+                            {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+    </main>
+
+    <!-- Lightweight inline script to toggle the aside visibility -->
+    <script>
+        // function to light or dark template
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-bs-theme') || 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-bs-theme', next);
+            localStorage.setItem('theme', next);
+
+            switch (next) {
+                case 'dark':
+                    document.getElementsByTagName("header")["0"].setAttribute("class", "p-2 bg-black text-light");
+                    document.getElementsByTagName("aside")["0"].setAttribute("class", "p-2 bg-black text-light");
+                    break;
+                case 'light':
+                    document.getElementsByTagName("header")["0"].setAttribute("class", "p-2 bg-light text-dark");
+                    document.getElementsByTagName("aside")["0"].setAttribute("class", "p-2 bg-light text-dark");
+                    break;
+                default:
+                    document.getElementsByTagName("header")["0"].setAttribute("class", "p-2 bg-auto text-auto");
+                    document.getElementsByTagName("aside")["0"].setAttribute("class", "p-2 bg-auto text-auto");
+            }
+
+            updateThemeIcons(next);
+        }
+        function updateThemeIcons(theme) {
+            const sun = 'bi-sun-fill';
+            const moon = 'bi-moon-stars-fill';
+            const headerIcon = document.getElementById('themeIconHeader');
+            const sideIcon = document.getElementById('themeIcon');
+            if (headerIcon) headerIcon.className = 'bi ' + (theme === 'dark' ? sun : moon);
+            if (sideIcon) sideIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+        }
+        document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+        document.getElementById('themeToggleHeader')?.addEventListener('click', toggleTheme);
+
+        (function () {
+            const toggle = document.getElementById('asideToggle');
+            const aside = document.getElementById('app-aside') || document.querySelector('aside');
+            if (!toggle || !aside) return;
+
+            function handleToggle() {
+                const isHidden = aside.classList.toggle('d-none');
+                toggle.setAttribute('aria-expanded', String(!isHidden));
+            }
+
+            toggle.addEventListener('click', handleToggle);
+            toggle.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleToggle();
+                }
+            });
+        })();
+    </script>
+
+{% endblock %}

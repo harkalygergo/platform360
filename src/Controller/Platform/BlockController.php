@@ -3,16 +3,22 @@
 namespace App\Controller\Platform;
 
 use App\Entity\Platform\User;
+use App\Entity\Platform\Block;
+use App\Form\Platform\BlockType;
 use App\Repository\Platform\BlockRepository;
+use App\Repository\Platform\InstanceRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+#[Route('/admin/v2/web/block')]
 #[IsGranted(User::ROLE_USER)]
 class BlockController extends AbstractController
 {
-    #[Route('/admin/v2/blocks', name: 'web_block_index', methods: ['GET'])]
+    #[Route('/', name: 'web_block_index', methods: ['GET'])]
     public function index(BlockRepository $blockRepository): Response
     {
         $blocks = $blockRepository->findAll();
@@ -32,8 +38,45 @@ class BlockController extends AbstractController
 
         return $this->render('platform/dashboard/main.html.twig', [
             'title' => 'blokkok',
-            'items'     => $data['0'],
+            'items'     => $data,
             ]);
     }
-}
 
+    #[Route('/add/', name: 'web_block_add', methods: ['GET', 'POST'])]
+    public function add(Request $request, EntityManagerInterface $em, InstanceRepository $instanceRepository): Response
+    {
+        $block = new Block();
+
+        $form = $this->createForm(BlockType::class, $block);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Ensure relations required by Block are set: instance and createdBy
+            $user = $this->getUser();
+            if ($user instanceof User) {
+                $block->setCreatedBy($user);
+                // try to get user's default instance, fallback to first instance in DB
+                $instance = $user->getDefaultInstance();
+                if (!$instance) {
+                    $instances = $instanceRepository->findAll();
+                    $instance = $instances[0] ?? null;
+                }
+                if ($instance) {
+                    $block->setInstance($instance);
+                }
+            }
+
+            $em->persist($block);
+            $em->flush();
+
+            $this->addFlash('success', 'Block created');
+
+            return $this->redirectToRoute('web_block_index');
+        }
+
+        return $this->render('platform/block/add.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+}

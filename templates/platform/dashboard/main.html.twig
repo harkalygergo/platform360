@@ -26,6 +26,8 @@
                 <p class="text-danger">You are not logged in.</p>
             {% endif %}
 
+            <a href="add/">add</a>
+
             <div class="card">
                 <div class="card-header text-uppercase fw-bold">
                     {{ title }}
@@ -35,20 +37,25 @@
                         <table class="table table-sm table-hover table-striped">
 
                             <thead>
-                                <tr>
-                                    {% for key, value in items %}
-                                            <th>{{ key }}:</th>
-                                    {% endfor %}
-                                </tr>
+                            <tr>
+                                {% for key, value in items['0'] %}
+                                    <th>{{ key }}</th>
+                                {% endfor %}
+                            </tr>
                             </thead>
 
-                            <tbody>
-                            <tr>
-                            {% for key, value in items %}
-                                    <td>{{ value }}:</td>
+                            {% for item in items %}
+
+                                <tbody>
+                                <tr>
+                                    {% for key, value in item %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                                </tbody>
                             {% endfor %}
-                            </tr>
-                            </tbody>
+
+
                         </table>
                     </div>
                 </div>

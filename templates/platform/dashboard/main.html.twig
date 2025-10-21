@@ -20,12 +20,6 @@
                 </ol>
             </nav>
 
-            {% if app.user %}
-                <p class="text-success">You are logged in as {{ app.user.email }}.</p>
-            {% else %}
-                <p class="text-danger">You are not logged in.</p>
-            {% endif %}
-
             <a href="add/">add</a>
 
             <div class="card">

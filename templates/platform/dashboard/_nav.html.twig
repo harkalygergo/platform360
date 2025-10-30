@@ -1,4 +1,22 @@
-<nav class="bg-black text-white border-end">
+<script>
+    function showAside(asideID)
+    {
+        hideAsides();
+        document.getElementById(asideID).setAttribute("aria-expanded", "true");
+        document.getElementById(asideID).setAttribute("style", "display:block");
+    }
+
+    function hideAsides()
+    {
+        let asideSections = document.getElementsByTagName('aside')["0"].getElementsByTagName('section');
+        for (let i = 0; i < asideSections.length; i++)
+        {
+            asideSections[i].style.display = "none";
+        }
+    }
+
+</script>
+<nav class="bg-dark text-white">
     <div class="d-flex flex-column flex-shrink-0 h-100">
         <a href="/"
            class="d-block py-1 text-center text-decoration-none border-bottom text-warning"
@@ -9,49 +27,49 @@
             <br><small class="fw-bold text-uppercase">platform</small>
             <span class="visually-hidden">Icon-only</span> </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-            <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="admin">
+            <li class="nav-item border-bottom border-end">
+                <span onclick="showAside('asideADMIN');" class="nav-link link-body-emphasis text-secondary fw-bold" title="admin">
                     <i class="bi bi-speedometer2 fs-4"></i>
                     <br><small>ADMIN</small>
-                </a>
+                </span>
             </li>
-            <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-white fw-bold" title="Content Management System">
+            <li class="nav-item border-bottom border-end">
+                <span onclick="showAside('asideWEB');" class="nav-link link-body-emphasis text-white fw-bold" title="Content Management System">
                     <i class="bi bi-globe fs-3 p-0 m-0"></i>
                     <br><small>WEB</small>
-                </a>
+                </span>
             </li>
-            <li class="nav-item border-bottom">
+            <li class="nav-item border-bottom border-end">
                 <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="Customer Relationship Management">
                     <i class="bi bi-people fs-3 p-0 m-0"></i>
                     <br><small>CRM</small>
                 </a>
             </li>
-            <li class="nav-item border-bottom">
+            <li class="nav-item border-bottom border-end">
                 <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="E-commerce">
                     <i class="bi bi-cart fs-3 p-0 m-0"></i>
                     <br><small>ECOM</small>
                 </a>
             </li>
-            <li class="nav-item border-bottom">
-                <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="Enterprise Resource Planning">
+            <li class="nav-item border-bottom border-end">
+                <span onclick="showAside('asideERP');" class="nav-link link-body-emphasis text-secondary fw-bold" title="Enterprise Resource Planning">
                     <i class="bi bi-briefcase fs-3 p-0 m-0"></i>
                     <br><small>ERP</small>
-                </a>
+                </span>
             </li>
-            <li class="nav-item border-bottom">
+            <li class="nav-item border-bottom border-end">
                 <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="Analytics">
                     <i class="bi bi-graph-up fs-3 p-0 m-0"></i>
                     <br><small>ANALYTICS</small>
                 </a>
             </li>
-            <li class="nav-item border-bottom">
+            <li class="nav-item border-bottom border-end">
                 <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="tools">
                     <i class="bi bi-tools fs-3 p-0 m-0"></i>
                     <br><small>TOOLS</small>
                 </a>
             </li>
-            <li class="nav-item border-bottom">
+            <li class="nav-item border-bottom border-end">
                 <a href="#" class="nav-link link-body-emphasis text-secondary fw-bold" title="settings">
                     <i class="bi bi-gear fs-3 p-0 m-0"></i>
                     <br><small>SETTINGS</small>

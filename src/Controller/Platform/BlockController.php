@@ -39,7 +39,7 @@ class BlockController extends AbstractController
         return $this->render('platform/dashboard/main.html.twig', [
             'title' => 'blokkok',
             'items'     => $data,
-            ]);
+        ]);
     }
 
     #[Route('/add/', name: 'web_block_add', methods: ['GET', 'POST'])]

@@ -27,38 +27,34 @@
                     {{ title }}
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-hover table-striped">
+                    <div class="table-responsive small">
+                        <table class="table table-hover table-bordered table-sm table-striped">
 
                             <thead>
                             <tr>
                                 {% for key, value in items['0'] %}
-                                    <th>{{ key }}</th>
+                                    <th scope="col">{{ key }}</th>
                                 {% endfor %}
                                 <th>Eszközök</th>
                             </tr>
                             </thead>
-
-                            {% for item in items %}
-
-                                <tbody>
-                                <tr>
-                                    {% for key, value in item %}
-                                        <td>{{ value }}</td>
-                                    {% endfor %}
-                                    <td>
-                                        <a href="edit/{{ item.id }}">edit</a>
-                                        <form action="delete/{{ item.id }}" method="POST">
-                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ item.id) }}">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit">delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            {% endfor %}
-
-
+                            <tbody class="table-group-divider">
+                                {% for item in items %}
+                                    <tr>
+                                        {% for key, value in item %}
+                                            <td>{{ value }}</td>
+                                        {% endfor %}
+                                        <td>
+                                            <a href="edit/{{ item.id }}">edit</a>
+                                            <form action="delete/{{ item.id }}" method="POST">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ item.id) }}">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit">delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
                         </table>
                     </div>
                 </div>

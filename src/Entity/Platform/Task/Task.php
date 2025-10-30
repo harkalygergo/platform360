@@ -16,7 +16,6 @@ class Task
     #[ORM\Column]
     private ?int $id = null;
 
-
     #[ORM\Column(type: 'boolean')]
     private bool $status;
 
@@ -35,22 +34,18 @@ class Task
     #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
-
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    // add assignee
     #[ORM\ManyToOne(targetEntity: User::class)]
     private ?User $assignee = null;
 
-    // add deadline
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?\DateTimeInterface $deadline = null;
 
-    // add priority
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $priority = null;
 
